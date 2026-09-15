@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Data Monitor</h1>
+      <span id="health" class="health">Checking</span>
+    </header>
+
+    <label for="clientSelect">Client</label>
+    <select id="clientSelect"></select>
+
+    <fieldset>
+      <label>
+        <input id="includeDatabase" type="checkbox" checked>
+        Database
+      </label>
+      <label>
+        <input id="includeUi" type="checkbox" checked>
+        UI metrics
+      </label>
+    </fieldset>
+
+    <div class="actions">
+      <button id="refreshBtn" type="button">Refresh</button>
+      <button id="cancelBtn" class="secondary" type="button" hidden>Cancel</button>
+    </div>
+
+    <section id="progressPanel" class="progress-panel" data-state="idle" hidden>
+      <div class="progress-meta">
+        <span id="progressLabel">Ready</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-track">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <div id="queryProgressList" class="step-progress-list"></div>
+    </section>
+
+    <p id="status" class="status">
+      <span id="loadingIcon" class="loading-icon" hidden></span>
+      <span id="statusText">Start the local backend, then choose a client.</span>
+    </p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

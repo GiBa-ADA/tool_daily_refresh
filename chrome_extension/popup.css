@@ -1,0 +1,364 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 300px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f8fb;
+  color: #202124;
+  border-radius: 6px;
+}
+
+.container {
+  padding: 14px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #3c4043;
+}
+
+select,
+button {
+  width: 100%;
+  min-height: 36px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+select {
+  margin-bottom: 12px;
+  border: 1px solid #d3a378;
+  padding: 0 10px;
+  background: #fff2DF;
+  color: #3E2522;
+  outline: none;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+
+select:hover {
+  border-color: #b06b3f;
+  background: #ffe7c8;
+}
+
+select:focus {
+  border-color: #3E2522;
+  box-shadow: 0 0 0 3px rgba(176, 107, 63, 0.22);
+}
+
+fieldset {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 10px;
+  border: 1px solid #d3a378;
+  border-radius: 10px;
+  background: #fff2DF;
+}
+
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 160ms ease;
+}
+
+fieldset label:hover {
+  color: #b06b3f;
+}
+
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #3E2522;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+  accent-color: #b06b3f;
+}
+
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid rgba(176, 107, 63, 0.55);
+  outline-offset: 2px;
+}
+
+button {
+  border: 0;
+  background: #3E2522;
+  color: #fff2DF;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+button.secondary {
+  width: auto;
+  min-width: 82px;
+  border: 1px solid #c5221f;
+  background: #fce8e6;
+  color: #c5221f;
+}
+
+button.secondary[hidden] {
+  display: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.progress-panel {
+  margin-top: 12px;
+}
+
+.progress-panel[hidden] {
+  display: none;
+}
+
+.progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: #3c4043;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ead8c8;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: #3E2522;
+  transition: width 360ms ease, background-color 220ms ease;
+}
+
+.progress-panel[data-state="queued"] .progress-fill,
+.progress-panel[data-state="running"] .progress-fill {
+  background: #b06b3f;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.28) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.28) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 18px 18px;
+  animation: progress-stripes 850ms linear infinite;
+}
+
+.progress-panel[data-state="success"] .progress-fill {
+  background: #188038;
+}
+
+.progress-panel[data-state="failed"] .progress-fill,
+.progress-panel[data-state="error"] .progress-fill,
+.progress-panel[data-state="cancelled"] .progress-fill {
+  background: #c5221f;
+}
+
+.step-progress-list {
+  display: block;
+  overflow: hidden;
+  margin-top: 12px;
+  border: 1px solid #d3a378;
+  border-radius: 6px;
+  background: #fff2DF;
+}
+
+.step-progress-row[hidden] {
+  display: none;
+}
+
+.step-progress-row {
+  padding: 9px 10px;
+  border-bottom: 1px solid #ead8c8;
+  background: transparent;
+}
+
+.step-progress-row:last-child {
+  border-bottom: 0;
+}
+
+.step-progress-row[data-status="pending"] .progress-fill {
+  min-width: 8px;
+  background: #d3a378;
+}
+
+.step-progress-row[data-status="pending"] .query-state {
+  color: #7a5634;
+}
+
+.step-progress-row[data-status="running"] .progress-fill {
+  background: #b06b3f;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.28) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.28) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 18px 18px;
+  animation: progress-stripes 850ms linear infinite;
+}
+
+.step-progress-row[data-status="success"] .progress-fill,
+.step-progress-row[data-status="empty"] .progress-fill {
+  background: #188038;
+}
+
+.step-progress-row[data-status="failed"] .progress-fill {
+  background: #c5221f;
+}
+
+.step-progress-row[data-status="cancelled"] .progress-fill {
+  min-width: 8px;
+  background: #c5221f;
+}
+
+.query-state {
+  margin: 0 8px;
+  color: #5f6368;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.query-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.step-progress-row[data-status="success"] .query-state,
+.step-progress-row[data-status="empty"] .query-state {
+  color: #137333;
+}
+
+.step-progress-row[data-status="failed"] .query-state {
+  color: #c5221f;
+}
+
+.step-progress-row[data-status="cancelled"] .query-state {
+  color: #c5221f;
+}
+
+.health {
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #eef2f7;
+  color: #5f6368;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.health[data-state="online"] {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.health[data-state="offline"] {
+  background: #fce8e6;
+  color: #c5221f;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  margin: 12px 0 0;
+  padding: 8px;
+  border-radius: 6px;
+  background: #eef2f7;
+  color: #3c4043;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.loading-icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 720ms linear infinite;
+}
+
+.loading-icon[hidden] {
+  display: none;
+}
+
+.status[data-state="success"] {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.status[data-state="failed"],
+.status[data-state="error"],
+.status[data-state="cancelled"] {
+  background: #fce8e6;
+  color: #c5221f;
+}
+
+.status[data-state="running"],
+.status[data-state="queued"] {
+  background: #e8f0fe;
+  color: #174ea6;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes progress-stripes {
+  to {
+    background-position: 18px 0;
+  }
+}

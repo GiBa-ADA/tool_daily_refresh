@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "[refresh] Data Monitoring Sync",
+  "version": "1.0",
+  "description": "Trigger client refresh jobs from the local ADA backend.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://127.0.0.1:5000/*",
+    "http://localhost:5000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/pine_tree_16.png",
+      "32": "assets/pine_tree_32.png",
+      "64": "assets/pine_tree_32.png"
+    }
+  },
+  "icons": {
+    "16": "assets/pine_tree_16.png",
+    "32": "assets/pine_tree_32.png",
+    "64": "assets/pine_tree_32.png"
+  }
+}
