@@ -1,0 +1,18 @@
+databases:
+  - client:                                         #Client name (e.g., shiseido)
+    host:                                           #Host (Replica-Host)
+    port: 5432
+    database:                                       #Database name
+    sales_traffic_spreadsheet_id:                   #Navigate to 'sales_traffic' folder and client-sheet. After that, set spreadsheet_id
+    media_spreadsheet_id:                           #Navigate to 'media' folder and client-sheet. After that, set spreadsheet_id
+    content_spreadsheet_id:                         #Navigate to 'content' folder and client-sheet. After that, set spreadsheet_id              
+    sales_traffic_worksheet_name: '[sales_traffic] database'
+    sales_traffic_worksheet_name_ui: '[sales_traffic] automated_input'
+    media_worksheet_name: '[media] database'
+    media_worksheet_name_ui: '[media] automated_input'
+    content_worksheet_name: '[content] database'
+    content_worksheet_name_ui: '[content] automated_input'
+    affiliate_worksheet_name: '[sales_affiliate] database'
+    affiliate_worksheet_name_ui: '[sales_affiliate] automated_input'
+    product_worksheet_name: '[product] database'
+    product_worksheet_name_ui:

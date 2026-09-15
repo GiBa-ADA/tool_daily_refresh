@@ -44,6 +44,14 @@ class MetricRegistry:
                 MetricJob("SALES_TRAFFIC_AUTOMATED", config.sheet("sales_traffic"),
                         schema.SALES_TRAFFIC_EXPECTED_COLUMNS_UI, ui=True),
             ),
+            "sales_affiliate": (
+                MetricJob("SALES_AFFILIATE_DB", config.sheet("sales_affiliate"),
+                        schema.AFFILIATE_EXPECTED_COLUMNS),
+            ),
+            "product": (
+                MetricJob("PRODUCT_DB", config.sheet("product"),
+                        schema.PRODUCT_EXPECTED_COLUMNS),
+            ),
             "media": (
                 MetricJob("MEDIA_DB", config.sheet("media"),
                         schema.MEDIA_EXPECTED_COLUMNS),
@@ -53,14 +61,6 @@ class MetricRegistry:
             "content": (
                 MetricJob("CONTENT_DB", config.sheet("content"),
                         schema.CONTENT_EXPECTED_COLUMNS),
-            ),
-            "sales_affiliate": (
-                MetricJob("SALES_AFFILIATE_DB", config.sheet("sales_affiliate"),
-                        schema.AFFILIATE_EXPECTED_COLUMNS),
-            ),
-            "product": (
-                MetricJob("PRODUCT_DB", config.sheet("product"),
-                        schema.PRODUCT_EXPECTED_COLUMNS),
             ),
         }
 
