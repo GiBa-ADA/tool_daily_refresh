@@ -6,6 +6,7 @@ import asyncpg
 import pandas as pd
 from dotenv import load_dotenv
 
+from urllib.parse import quote
 from src.config.settings import Config
 
 
@@ -23,9 +24,13 @@ class DatabaseClient:
             raise ValueError("\033[91m[ERROR]\033[0m Missing DB_USERNAME or DB_PASSWORD in .env file")
 
     def _build_dsn(self, db_conf: dict) -> str:
+
+        username = quote(self.username, safe = "")
+        password = quote(self.password, safe = "")
+
         """Build PostgreSQL connection string"""
         return (
-            f"postgresql://{self.username}:{self.password}"
+            f"postgresql://{username}:{password}"
             f"@{db_conf['host']}:{db_conf['port']}/{db_conf['database']}"
         )
 
