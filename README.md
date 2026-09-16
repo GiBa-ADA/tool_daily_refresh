@@ -64,8 +64,21 @@ git clone https://github.com/GiBa-ADA/tool_daily_refresh.git
 ```
 --
 
+**step 2: install library:**
 
-**step 2: enter your database credentials:**
+Using powershell in terminal:
+```
+cd <tool_project_in_your_local>
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+```
+--
+
+**step 3: enter your database credentials:**
 
 Can be follow up with below process:    (Run all in Terminal)
 
@@ -78,7 +91,7 @@ Copy-Item .env.example .env
 ```
 --
 
-**step 3: check your client db connection**
+**step 4: check your client db connection**
 
 Can be follow up with below process:    (Run all in Terminal)
 
@@ -93,7 +106,7 @@ After create file ``` .yaml ```, you can be copy-paste if you have some clients.
 
 --
 
-**step 4: check your seller scope**
+**step 5: check your seller scope**
 
 Contact with Huy Le (SuSu) in order to receive ```config``` folder.
 
