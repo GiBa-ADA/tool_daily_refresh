@@ -132,9 +132,9 @@ class Config:
                 spreadsheet_id="sales_traffic_spreadsheet_id",
                 worksheet_name="[product] database",
                 worksheet_name_ui="",
-                pos_clear_content="B3:I",
+                pos_clear_content=None,
                 pos_update_content="B3",
-                pos_clear_content_ui="C5:I",
+                pos_clear_content_ui=None,
                 pos_update_content_ui="C5",
             ),
         }
